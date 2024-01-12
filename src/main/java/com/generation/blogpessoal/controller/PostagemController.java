@@ -53,4 +53,12 @@ public class PostagemController {
 
         postagemRepository.deleteById(id);
     }
+
+    @PutMapping
+    public ResponseEntity<Postagem> updatePostagem(@Valid @RequestBody Postagem postagem) {
+        return postagemRepository.findById(postagem.getId())
+                .map(response -> ResponseEntity.status(HttpStatus.OK)
+                        .body(postagemRepository.save(postagem)))
+                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+    }
 }
