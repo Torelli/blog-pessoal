@@ -1,6 +1,7 @@
 package com.generation.blogpessoal.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
@@ -17,7 +18,9 @@ public class Tema {
     @NotNull(message = "O Atributo Descrição é obrigatório")
     private String descricao;
 
-    private List<Postagem> postagem;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tema", cascade = CascadeType.REMOVE)
+    @JsonIgnoreProperties("tema")
+    private List<Postagem> postagens;
 
     public Long getId() {
         return id;
@@ -35,11 +38,11 @@ public class Tema {
         this.descricao = descricao;
     }
 
-    public List<Postagem> getPostagem() {
-        return postagem;
+    public List<Postagem> getPostagens() {
+        return postagens;
     }
 
-    public void setPostagem(List<Postagem> postagem) {
-        this.postagem = postagem;
+    public void setPostagens(List<Postagem> postagens) {
+        this.postagens = postagens;
     }
 }
