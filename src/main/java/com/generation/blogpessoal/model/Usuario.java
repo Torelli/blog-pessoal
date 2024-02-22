@@ -32,6 +32,9 @@ public class Usuario {
     @Size(max = 5000, message = "O link da foto não pode ser maior do que 5000 caracteres")
     private String foto;
 
+    @NotNull
+    private boolean isAdmin;
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario", cascade = CascadeType.REMOVE)
     private List<Postagem> postagens;
 
@@ -91,5 +94,13 @@ public class Usuario {
 
     public void setPostagens(List<Postagem> postagens) {
         this.postagens = postagens;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 }

@@ -45,6 +45,7 @@ public class UsuarioController {
 
     @PostMapping("/cadastrar")
     public  ResponseEntity<Usuario> createUsuario(@Valid @RequestBody Usuario usuario) {
+        usuario.setAdmin(false);
         return usuarioService.cadastrarUsuario(usuario)
                 .map(response -> ResponseEntity.status(HttpStatus.CREATED).body(response))
                 .orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
