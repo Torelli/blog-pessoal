@@ -32,6 +32,7 @@ public class UsuarioService {
             return Optional.empty();
 
         usuario.setSenha(criptografarSenha(usuario.getSenha()));
+        usuario.setAdmin(false);
 
         return Optional.of(usuarioRepository.save(usuario));
     }
@@ -75,6 +76,7 @@ public class UsuarioService {
                 usuarioLogin.get().setFoto(usuario.get().getFoto());
                 usuarioLogin.get().setToken(gerarToken(usuarioLogin.get().getUsuario()));
                 usuarioLogin.get().setSenha("");
+                usuarioLogin.get().setAdmin(usuario.get().isAdmin());
 
                 // Retorna o Objeto preenchido
                 return usuarioLogin;

@@ -8,6 +8,7 @@ public class UsuarioLogin {
     private String senha;
     private String foto;
     private String token;
+    private boolean isAdmin;
 
     public Long getId() {
         return id;
@@ -55,5 +56,13 @@ public class UsuarioLogin {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 }
