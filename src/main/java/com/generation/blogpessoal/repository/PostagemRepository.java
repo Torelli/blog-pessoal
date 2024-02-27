@@ -14,6 +14,6 @@ public interface PostagemRepository extends JpaRepository<Postagem, Long> {
     //SELECT * FROM tb_postagens WHERE titulo LIKE "%titulo%"
     List<Postagem> findAllByTituloContainingIgnoreCase(@Param("titulo") String titulo);
 
-    List<Postagem> findAllOrderByDataDesc();
+    List<Postagem> findAllByOrderByDataDesc();
 
 }

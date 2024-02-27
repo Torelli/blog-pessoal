@@ -26,7 +26,7 @@ public class PostagemController {
 
     @GetMapping
     public ResponseEntity<List<Postagem>> findAll() {
-        return ResponseEntity.ok(postagemRepository.findAllOrderByDataDesc());
+        return ResponseEntity.ok(postagemRepository.findAllByOrderByDataDesc());
     }
 
     @GetMapping("/{id}")
