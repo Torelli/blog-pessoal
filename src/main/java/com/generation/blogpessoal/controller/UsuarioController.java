@@ -43,7 +43,6 @@ public class UsuarioController {
                 .orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
     }
 
-    @CrossOrigin(origins = "https://postlab.vercel.app", allowedHeaders = "*")
     @PostMapping("/cadastrar")
     public  ResponseEntity<Usuario> createUsuario(@Valid @RequestBody Usuario usuario) {
         return usuarioService.cadastrarUsuario(usuario)
