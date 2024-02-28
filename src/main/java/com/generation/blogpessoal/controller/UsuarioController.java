@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuarios")
-@CrossOrigin(origins = "https://postlab.vercel.app", allowedHeaders = "*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UsuarioController {
 
     @Autowired
@@ -43,6 +43,7 @@ public class UsuarioController {
                 .orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
     }
 
+    @CrossOrigin(origins = "https://postlab.vercel.app", allowedHeaders = "*")
     @PostMapping("/cadastrar")
     public  ResponseEntity<Usuario> createUsuario(@Valid @RequestBody Usuario usuario) {
         return usuarioService.cadastrarUsuario(usuario)
