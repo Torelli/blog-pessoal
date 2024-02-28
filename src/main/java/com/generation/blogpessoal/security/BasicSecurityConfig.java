@@ -57,8 +57,14 @@ public class BasicSecurityConfig {
         http
                 .sessionManagement(management -> management
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .csrf(AbstractHttpConfigurer::disable)
+                .csrf().disable()
                 .cors(withDefaults());
+
+        /*http
+                .sessionManagement(management -> management
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .csrf(AbstractHttpConfigurer::disable)
+                .cors(withDefaults());*/
 
         http
                 .authorizeHttpRequests((auth) -> auth
