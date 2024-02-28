@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuarios")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "https://postlab.vercel.app", allowedHeaders = "*")
 public class UsuarioController {
 
     @Autowired
