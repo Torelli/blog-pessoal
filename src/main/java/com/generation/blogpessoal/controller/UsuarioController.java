@@ -50,6 +50,7 @@ public class UsuarioController {
                 .orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
     }
 
+    @CrossOrigin(origins = "https://postlab.vercel.app", allowedHeaders = "*")
     @PutMapping("/atualizar")
     public ResponseEntity<Usuario> updateUsuario(@Valid @RequestBody Usuario usuario) {
         return usuarioService.atualizarUsuario(usuario)

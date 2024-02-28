@@ -64,12 +64,12 @@ public class BasicSecurityConfig {
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers("/usuarios/login").permitAll()
                         .requestMatchers("/usuarios/cadastrar").permitAll()
+                        .requestMatchers("usuarios/atualizar").permitAll()
                         .requestMatchers("/error/**").permitAll()
                         .requestMatchers(HttpMethod.OPTIONS).permitAll()
                         .anyRequest().authenticated())
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class)
-                .cors(withDefaults())
                 .httpBasic(withDefaults());
 
         return http.build();
