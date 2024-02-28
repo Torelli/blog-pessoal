@@ -53,7 +53,7 @@ public class UsuarioController {
     @PutMapping("/atualizar")
     public ResponseEntity<Usuario> updateUsuario(@Valid @RequestBody Usuario usuario) {
         return usuarioService.atualizarUsuario(usuario)
-                .map(response -> ResponseEntity.status(HttpStatus.OK).body(response))
+                .map(response -> ResponseEntity.status(HttpStatus.OK).header("Access-Control-Allow-Origin:","*").body(response))
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
